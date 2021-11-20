@@ -1,9 +1,10 @@
 import re
+import sys
 
 
-def print_line(filename):
-    with open(filename, 'r') as file:
-        with open('log.csv', 'w') as csvfile:
+def convert_to_csv(log_name, csv_name):
+    with open(log_name, 'r') as file:
+        with open(csv_name, 'w') as csvfile:
             for line in file:
                 csvfile.write(line[0:15] + ';')
                 csvfile.write(line[16:31] + ';')
@@ -35,7 +36,7 @@ def print_line(filename):
 
 
 def main():
-    print_line('log')
+    convert_to_csv(sys.argv[1], sys.argv[2])
 
 
 if __name__ == '__main__':
