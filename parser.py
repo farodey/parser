@@ -32,6 +32,9 @@ def convert_to_csv(log_name, csv_name):
                 except Exception:
                     csvfile.write('none;')
 
+                # upstream responce
+                csvfile.write(re.search(r'upstream_responce: (.*?)\n', line).group(1))
+
                 csvfile.write('\n')
 
 
